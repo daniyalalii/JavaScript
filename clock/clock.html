@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #111;
+        }
+        #container {
+            background-color: rgb(152, 244, 244);
+            color: #000;
+            font-size: 2rem;
+            font-family: 'Courier New', monospace;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgb(0, 202, 202);
+        }
+        #container:hover{
+            background-color: rgb(0, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">00:00:00</div>
+    <script>
+        function clock() {
+            let now = new Date();
+            // let hours = now.getHours().toString().padStart(2,'0');
+            let hours = now.getHours();
+            let minutes = now.getMinutes().toString().padStart(2, '0');
+            let seconds = now.getSeconds().toString().padStart(2, '0');
+            let time = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            hours = hours.toString().padStart(2, '0');
+
+            document.getElementById('container').textContent = `${hours}:${minutes}:${seconds} ${time}`;
+        }
+        clock();
+        setInterval(clock, 1000);
+    </script>
+</body>
+
+</html>
