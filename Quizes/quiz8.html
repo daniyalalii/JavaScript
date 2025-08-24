@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="box">Box1</div>
+    <div class="box">Box2</div>
+    <div class="box">Box3</div>
+    <script>
+        let div = document.createElement('div');
+        div.className = "box";
+        div.textContent = "Box created";
+        div.style.backgroundColor = "red";
+        let container = document.querySelector('.box');
+        container.replaceWith(div);
+    </script>
+</body>
+</html>
